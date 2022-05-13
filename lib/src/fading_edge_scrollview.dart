@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// Flutter widget for displaying fading edge at start/end of scroll views
@@ -192,7 +191,7 @@ class _FadingEdgeScrollViewState extends State<FadingEdgeScrollView>
     _isScrolledToStart = _controller.initialScrollOffset == 0;
     _controller.addListener(_onScroll);
 
-    WidgetsBinding.instance?.let((it) {
+    WidgetsBinding.instance.let((it) {
       it.addPostFrameCallback(_postFrameCallback);
       it.addObserver(this);
     });
@@ -217,7 +216,7 @@ class _FadingEdgeScrollViewState extends State<FadingEdgeScrollView>
 
   @override
   void dispose() {
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
     _controller.removeListener(_onScroll);
     if (widget.shouldDisposeScrollController) {
